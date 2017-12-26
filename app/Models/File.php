@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -29,8 +30,18 @@ class File extends Model
         return 'identifier';
     }
 
+    public function scopeFinished(Builder $builder)
+    {
+        return $builder->where('finished', true);
+    }
+
     public function user()
     {
         $this->belongsTo(User::class);
+    }
+
+    public function isFree()
+    {
+        return $this->price == 0;
     }
 }

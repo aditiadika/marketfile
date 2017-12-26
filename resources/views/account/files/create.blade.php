@@ -12,7 +12,7 @@
                 @if($errors->has('title'))
                     <p class="help is-danger">{{ $errors->first('title') }}</p>
                 @endif
-            </div>gi
+            </div>
            <div class="field">
                <label for="overview_short" class="label">Short Overview</label>
                <p class="control">
